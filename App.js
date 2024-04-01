@@ -24,7 +24,7 @@ export default function App() {
     // </View>
     <NavigationContainer>
       <Tab.Navigator>
-        <Tab.Screen name="Schedule_Settings" component={Schedule_Settings}
+        <Tab.Screen name="Schedule Settings" component={Schedule_Settings}
           options={{
             tabBarIcon: ({ focused }) => (
               <Ionicons 
@@ -47,7 +47,7 @@ export default function App() {
           
           
           }} />
-        <Tab.Screen name="EnergyUsage" component={EnergyUsage} 
+        <Tab.Screen name="Energy Usage" component={EnergyUsage} 
           options={{
             tabBarIcon: ({ focused }) => (
               <MaterialIcons 

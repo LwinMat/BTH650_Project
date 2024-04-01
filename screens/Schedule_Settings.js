@@ -1,6 +1,6 @@
 import {ScrollView, View, Text, StyleSheet, Button, TextInput, TouchableOpacity, Alert, Platform, StatusBar, SafeAreaView, Pressable, Switch} from 'react-native';
 import {useState} from 'react';
-import { Calendar, LocaleConfig } from 'react-native-calendars';
+import { Calendar} from 'react-native-calendars';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
@@ -36,7 +36,7 @@ const Schedule_Settings = ({navigation}) => {
 
     return(
         <SafeAreaView style={[styles.container]}>
-            <ScrollView style={{marginTop:4, marginBottom:20, padding:10}}>
+            <ScrollView style={{padding:10, top:0}}>
                 <Calendar
                     onDayPress={(day) => {setSelected(day.dateString)}}
                     markedDates={{
@@ -46,8 +46,9 @@ const Schedule_Settings = ({navigation}) => {
                 />
                 
                 <ScrollView horizontal style={{paddingBottom:5, paddingRight:5, paddingLeft:-9}}>
+                    
                     {/* Lighting Settings */}
-                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left:15, marginBottom: 34}}>
+                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left:15, marginBottom: 34, shadowOffset: {width: 0, height:2}, shadowOpacity: 0.25, shadowRadius: 3.84, elevation:5}}>
                             
                             <Text style={[styles.text]}>Light Setting</Text>
                            
@@ -94,6 +95,10 @@ const Schedule_Settings = ({navigation}) => {
                                     if (selectedDate) {
                                         setDate(selectedDate);
                                     }
+                                    else{
+                                        setDate(null)
+                                    }
+                                    
                                     setShowDatePicker(false);
                                 }}
                             />
@@ -105,7 +110,7 @@ const Schedule_Settings = ({navigation}) => {
 
 
                     {/* Thermostate */}
-                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 40}}>
+                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 40, shadowOffset: {width: 0, height:2}, shadowOpacity: 0.25, shadowRadius: 3.84, elevation:5}}>
                             
                             <Text style={[styles.text]}>Thermostate</Text>
                            
@@ -146,12 +151,16 @@ const Schedule_Settings = ({navigation}) => {
                         </Pressable>
                         {showDatePicker1 && (
                             <DateTimePicker
-                                value={date}
+                                value={date1}
                                 mode="time"
                                 onChange={(event, selectedDate) => {
                                     if (selectedDate) {
                                         setDate1(selectedDate);
                                     }
+                                    else{
+                                        setDate1(null)
+                                    }
+                                    
                                     setShowDatePicker1(false);
                                 }}
                             />
@@ -173,25 +182,29 @@ const Schedule_Settings = ({navigation}) => {
                         </Pressable>
                         {showDatePicker1_2 && (
                             <DateTimePicker
-                                value={date}
+                                value={date1_2}
                                 mode="time"
                                 onChange={(event, selectedDate) => {
                                     if (selectedDate) {
                                         setDate1_2(selectedDate);
                                     }
+                                    else{
+                                        setDate1_2(null)
+                                    }
+                                    
                                     setShowDatePicker1_2(false);
                                 }}
                             />
                         )}
 
                         {date1 && date1_2 && <Text style={styles.message}>Time is set!</Text>}
-                        {!date1 || date1_2 && <Text style={styles.message}>Set a Time!</Text>}
+                        {!date1 || !date1_2 && <Text style={styles.message}>Set a Time!</Text>}
 
                     </View>
 
 
                     {/* Make Coffee */}
-                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 60}}>
+                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 60, shadowOffset: {width: 0, height:2}, shadowOpacity: 0.25, shadowRadius: 3.84, elevation:5}}>
                             
                             <Text style={[styles.text]}>Make Coffee</Text>
                            
@@ -227,19 +240,23 @@ const Schedule_Settings = ({navigation}) => {
                                     if (selectedDate) {
                                         setDate2(selectedDate);
                                     }
+                                    else{
+                                        setDate2(null)
+                                    }
+        
                                     setShowDatePicker2(false);
                                 }}
                             />
                         )}
-                        {!date2 && <Text style={styles.message}>Time is set!</Text>}
-                        {date2 && <Text style={styles.message}>Set a Time!</Text>}
+                        {date2 && <Text style={styles.message}>Time is set!</Text>}
+                        {!date2 && <Text style={styles.message}>Set a Time!</Text>}
 
                     </View>
 
 
 
                     {/* Set TV */}
-                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 80}}>
+                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 80, shadowOffset: {width: 0, height:2}, shadowOpacity: 0.25, shadowRadius: 3.84, elevation:5}}>
                             
                             <Text style={[styles.text]}>Set TV</Text>
                            
@@ -275,19 +292,23 @@ const Schedule_Settings = ({navigation}) => {
                                     if (selectedDate) {
                                         setDate3(selectedDate);
                                     }
+                                    else{
+                                        setDate3(null)
+                                    }
+                                    
                                     setShowDatePicker3(false);
                                 }}
                             />
                         )}
-                        {!date3 && <Text style={styles.message}>Time is set!</Text>}
-                        {date3 && <Text style={styles.message}>Set a Time!</Text>}
+                        {date3 && <Text style={styles.message}>Time is set!</Text>}
+                        {!date3 && <Text style={styles.message}>Set a Time!</Text>}
                         
 
                     </View>
 
 
                     {/* Fan */}
-                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 100, marginRight:120}}>
+                    <View style={{flexDirection:'column', marginTop:45, padding:24, backgroundColor:'white', width: 350, height: 692, borderRadius: 20, left: 100, marginRight:120, shadowOffset: {width: 0, height:2}, shadowOpacity: 0.25, shadowRadius: 3.84, elevation:5}}>
                             
                             <Text style={[styles.text]}>Fan</Text>
                            
@@ -329,12 +350,16 @@ const Schedule_Settings = ({navigation}) => {
                                     if (selectedDate) {
                                         setDate4(selectedDate);
                                     }
+                                    else{
+                                        setDate4(null)
+                                    }
+                                    
                                     setShowDatePicker4(false);
                                 }}
                             />
                         )}
-                        {!date4 && <Text style={styles.message}>Time is set!</Text>}
-                        {date4 && <Text style={styles.message}>Set a Time!</Text>}
+                        {date4 && <Text style={styles.message}>Time is set!</Text>}
+                        {!date4 && <Text style={styles.message}>Set a Time!</Text>}
 
                     </View>
 
@@ -351,11 +376,12 @@ export default Schedule_Settings;
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flex: 2,
         backgroundColor: '#dfe6e9',
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+        marginBottom: 0,
 
     },
     text: {
@@ -386,9 +412,16 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     cal:{
-        width: 370,
-        height: 375,
+        width: 369,
+        height: 374,
         borderRadius: 30,
+        shadowOffset: {width: 0, height:2}, 
+        shadowOpacity: 0.25, 
+        shadowRadius: 3.84, 
+        elevation:5,
+        marginTop: 10,
+        marginLeft: 3,
+        marginRight: 3,
     },
     pressable: {
         borderRadius: 5,
